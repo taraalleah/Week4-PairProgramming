@@ -3,14 +3,14 @@ const Tour = require("../models/tourModel.js");
 const getAllTours = (req, res) => {
   res.json(Tour.getAll());
 };
- 
+
 const createTour = (req, res) => {
   const { name, info, image, price, duration, groupSize, rating, availability } = req.body;
   const newTour = Tour.addOne(name, info, image, price, duration, groupSize, rating, availability);
   if (newTour) {
     res.json(newTour);
   } else {
-    res.status(500).json({ message: "Fail to create tour" });
+    res.status(201).json(newTour); 
   }
 };
 
@@ -41,7 +41,7 @@ const deleteTour = (req, res) => {
   if (isDeleted) {
     res.json({ message: "Deleted successfully" });
   } else {
-    res.status(404).json({ message: "Tour not found" });
+    res.status(204).send();
   }
 };
 
