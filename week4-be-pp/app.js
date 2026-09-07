@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use("/tours", TourRouter);
 app.use("/users", UserRouter);
-
+//IT WORKS!!!!!!!!!
 const port = 4000;
 // Start the server
 app.listen(port, () => {
