@@ -2,6 +2,8 @@ const express = require("express");
 const TourRouter = require("./routes/tourRouter.js");
 const UserRouter = require("./routes/userRouter.js");
 const app = express();
+const morgan = require("morgan");
+app.use(morgan("tiny")); 
 
 
 app.use(express.json());
